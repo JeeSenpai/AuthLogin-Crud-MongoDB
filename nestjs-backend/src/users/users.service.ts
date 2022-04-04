@@ -11,7 +11,7 @@ export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
   //Auth Login
-  async loginUser(username: string) {
+  async loginUserByUsername(username: string) {
     return this.userModel.findOne({ username: username });
   }
   
@@ -42,5 +42,5 @@ export class UsersService {
     if(remove){
       return new HttpException('User Successfully Deleted!',HttpStatus.FOUND);
      }
-  }
+  } 
 }
